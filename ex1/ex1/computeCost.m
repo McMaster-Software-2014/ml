@@ -16,12 +16,12 @@ J = 0;
 
 
 for j = 1:m,
-prediction = theta' * X(j);
-distanceSquared = (sum(prediction) - y(j)).^2;
-J = J + distanceSquared;
+%prediction = theta' * X(j);
+%distanceSquared = (sum(prediction) - y(j)).^2;
+prediction = theta(1,1) + (theta(2,1) * X(j,2));
+distanceSquared = (prediction - y(j))^2;
+J = J + (distanceSquared * ratio);
 end;
-
-J = ratio * J;
 
 
 % =========================================================================
