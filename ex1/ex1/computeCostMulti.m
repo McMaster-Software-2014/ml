@@ -14,6 +14,10 @@ J = 0;
 %               You should set J to the cost.
 
 
+testResults = X * theta;
+totalCost = testResults - y;
+costSquared = totalCost.^2;
+J = sum(costSquared) / (2*m);
 
 
 
