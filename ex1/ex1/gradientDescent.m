@@ -19,7 +19,14 @@ for iter = 1:num_iters
 
 
 
-		theta = theta - alpha * computeCost(X, y, theta) * X;
+		%printf("%d = [%0.02f, %0.02f] = %0.02f\n", iter, theta(1,1), theta(2,1), computeCost(X,y,theta));
+
+		%dtheta = theta;
+		%dtheta(1,1) = alpha * (1/m) * sum(((X*theta)-y)*X(:,1));
+		%dtheta(2,1) = alpha * (1/m) * sum(((X*theta)-y)*X(:,2));
+		%theta = theta - dtheta;
+
+		theta = theta - alpha * (1/m) * X'*((X*theta)-y);
 
 
 
